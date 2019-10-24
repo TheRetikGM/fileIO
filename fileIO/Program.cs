@@ -27,8 +27,31 @@ namespace fileIO
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Console.SetCursorPosition(j * 6 + 1, i * 3 + 1);
-                    Map[i, j].Print_wall();
+                    while (true)
+                    {
+                        break;
+                    }
+
+                    int x = j * 6;
+                    int y = i * 3;
+                    string[] str = Map[i, j].GetWall();
+
+                    for (int k = 0; k < 3; k++)
+                    {
+                        Console.SetCursorPosition(x, y + k);
+                        for (int l = 0; l < 6; l++)
+                        {
+                            string r = str[k];
+                            if (r[l] == 's')
+                            {
+                                Console.Write(' ');
+                            }
+                            else
+                            {
+                                Console.Write(r[l]);
+                            }
+                        }
+                    }
                 }
             }
         }

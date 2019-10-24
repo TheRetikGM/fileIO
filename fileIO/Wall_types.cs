@@ -13,6 +13,18 @@ namespace fileIO
         public string[] Wall;
         public bool[] Sides_acc = new bool[4];
 
+        public string[] GetWall()
+        {
+            return Wall;
+        }
+        public Sides GetOpositeSide(Sides s)
+        {
+            if (s == Sides.Up) return Sides.Down;
+            else if (s == Sides.Down) return Sides.Up;
+            else if (s == Sides.Left) return Sides.Left;
+            else if (s == Sides.Right) return Sides.Right;
+            else return s;
+        }
         public void init_wall(int i)
         {
             string path = string.Format("../../Walls/wall{0}.txt", i);
