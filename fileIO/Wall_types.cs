@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace fileIO
+{
+    public class Wall_types
+    {
+        public int Index;
+        public string[] Wall;
+        public bool[] Sides_acc = new bool[4];
+
+        public void init_wall(int i)
+        {
+            string path = string.Format("../../Walls/wall{0}.txt", i);
+            Wall = File.ReadAllLines(path);
+            for (int j = 0; j < 4; j++)
+            {
+                foreach (char c in Wall[j])
+                {
+                    int k = c - '0';
+                    if (k == 0)
+                        Sides_acc[j] = false;
+                    else if (k == 1)
+                        Sides_acc[j] = true;
+                }
+            }
+            Wall = Wall.Skip(4).ToArray();
+        }
+        public void Print_wall()
+        {
+            foreach (string s in Wall)
+                Console.WriteLine(s);
+        }
+        public void Print_sides()
+        {
+            for (int i = 0; i < 4; i++)
+                Console.WriteLine(Sides_acc[i]);
+        }
+    }
+}
