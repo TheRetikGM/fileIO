@@ -46,7 +46,7 @@
     <Compile Include="Sides.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wall_types.cs" />
+    <Compile Include="Wall_type.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -56,6 +56,10 @@
     <Content Include="Walls\wall10.txt" />
     <Content Include="Walls\wall11.txt" />
     <Content Include="Walls\wall12.txt" />
+    <Content Include="Walls\wall13.txt" />
+    <Content Include="Walls\wall14.txt" />
+    <Content Include="Walls\wall15.txt" />
+    <Content Include="Walls\wall16.txt" />
     <Content Include="Walls\wall2.txt" />
     <Content Include="Walls\wall3.txt" />
     <Content Include="Walls\wall4.txt" />

@@ -7,23 +7,35 @@ using System.IO;
 
 namespace fileIO
 {
-    public class Wall_types
+    public class Wall_type
     {
-        public int Index;
         public string[] Wall;
-        public bool[] Sides_acc = new bool[4];
+        public bool[] Sides_acc;
+
+        public Wall_type()
+        {
+            Sides_acc = new bool[4];
+            for (int i = 0; i < 4; i++)
+                Sides_acc[i] = false;
+        }
 
         public string[] GetWall()
         {
             return Wall;
         }
-        public Sides GetOpositeSide(Sides s)
+        public static Sides GetOpositeSide(Sides s)
         {
             if (s == Sides.Up) return Sides.Down;
             else if (s == Sides.Down) return Sides.Up;
             else if (s == Sides.Left) return Sides.Left;
             else if (s == Sides.Right) return Sides.Right;
             else return s;
+        }
+        public void init_wall_only(int i)
+        {
+            string path = string.Format("../../Walls/wall{0}.txt", i);
+            Wall = File.ReadAllLines(path);
+            Wall = Wall.Skip(4).ToArray();
         }
         public void init_wall(int i)
         {
